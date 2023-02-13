@@ -21,4 +21,18 @@ margin_right = 251.0
 margin_bottom = 20.0
 text = "Back"
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 445.0
+margin_top = 150.0
+margin_right = 607.0
+margin_bottom = 260.0
+tab_size = 3
+text = "Up: Top Arrow Key
+
+Down: Botton Arrow Key
+
+Left: Left Arrow Key
+
+Right: Right Arrow Key"
+
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
