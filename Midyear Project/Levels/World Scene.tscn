@@ -1,0 +1,153 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://viking2.png" type="Texture" id=2]
+[ext_resource path="res://movement.gd" type="Script" id=3]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://light.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 10.5
+height = 5.0
+
+[sub_resource type="Animation" id=4]
+resource_name = "Fall"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 20, 21, 22 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 3, 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Jump"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 18, 19 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Run"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 11, 10, 12, 13, 14 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 11.5
+height = 0.0
+
+[node name="World Scene" type="Node2D"]
+position = Vector2( 304, 112 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_tile_origin = 1
+format = 1
+tile_data = PoolIntArray( 65526, 1, 0, 65527, 1, 0, 65528, 1, 0, 65529, 1, 0, 65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 2, 0, 131062, 14, 0, 131063, 14, 0, 131064, 14, 0, 131065, 14, 0, 131066, 14, 0, 131067, 14, 0, 131068, 14, 0, 131069, 14, 0, 131070, 14, 0, 131071, 14, 0, 65536, 13, 0, 65537, 13, 0, 65538, 13, 0, 65539, 13, 0, 65540, 13, 0, 65541, 14, 0, 65542, 14, 0, 65543, 14, 0, 65544, 14, 0, 65545, 14, 0, 65546, 14, 0, 65547, 6, 0, 65548, 6, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 196596, 3, 0, 196597, 3, 0, 196598, 3, 0, 196599, 3, 0, 196600, 3, 0, 196601, 3, 0, 196602, 3, 0, 196603, 3, 0, 196604, 3, 0, 196605, 3, 0, 196606, 3, 0, 196607, 3, 0, 131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 131075, 3, 0, 131076, 3, 0, 131077, 3, 0, 131078, 3, 0, 131079, 3, 0, 131080, 3, 0, 131081, 3, 0, 131082, 3, 0, 131083, 14, 0, 131084, 14, 0, 131085, 14, 0, 131086, 14, 0, 131087, 14, 0, 131088, 14, 0, 131089, 14, 0, 131090, 18, 0, 131091, 18, 0, 131092, 18, 0, 131093, 18, 0, 131094, 18, 0, 262132, 3, 0, 262133, 3, 0, 262134, 3, 0, 262135, 3, 0, 262136, 3, 0, 262137, 3, 0, 262138, 3, 0, 262139, 3, 0, 262140, 3, 0, 262141, 3, 0, 262142, 3, 0, 262143, 3, 0, 196608, 3, 0, 196609, 3, 0, 196610, 3, 0, 196611, 3, 0, 196612, 3, 0, 196613, 3, 0, 196614, 3, 0, 196615, 3, 0, 196616, 3, 0, 196617, 3, 0, 196618, 3, 0, 196619, 3, 0, 196620, 3, 0, 196621, 3, 0, 196622, 3, 0, 196623, 3, 0, 196624, 3, 0, 196625, 3, 0, 196626, 14, 0, 196627, 14, 0, 196628, 14, 0, 196629, 14, 0, 196630, 14, 0, 196631, 14, 0, 327668, 3, 0, 327669, 3, 0, 327670, 3, 0, 327671, 3, 0, 327672, 3, 0, 327673, 3, 0, 327674, 3, 0, 327675, 3, 0, 327676, 3, 0, 327677, 3, 0, 327678, 3, 0, 327679, 3, 0, 262144, 3, 0, 262145, 3, 0, 262146, 3, 0, 262147, 3, 0, 262148, 3, 0, 262149, 3, 0, 262150, 3, 0, 262151, 3, 0, 262152, 3, 0, 262153, 3, 0, 262154, 3, 0, 262155, 3, 0, 262156, 3, 0, 262157, 3, 0, 262158, 3, 0, 262159, 3, 0, 262160, 3, 0, 262161, 3, 0, 262162, 3, 0, 262163, 3, 0, 262164, 3, 0, 262165, 3, 0, 262166, 3, 0, 262167, 3, 0, 393204, 3, 0, 393205, 3, 0, 393206, 3, 0, 393207, 3, 0, 393208, 3, 0, 393209, 3, 0, 393210, 3, 0, 393211, 3, 0, 393212, 3, 0, 393213, 3, 0, 393214, 3, 0, 393215, 3, 0, 327680, 3, 0, 327681, 3, 0, 327682, 3, 0, 327683, 3, 0, 327684, 3, 0, 327685, 3, 0, 327686, 3, 0, 327687, 3, 0, 327688, 3, 0, 327689, 3, 0, 327690, 3, 0, 327691, 3, 0, 327692, 3, 0, 327693, 3, 0, 327694, 3, 0, 327695, 3, 0, 327696, 3, 0, 327697, 3, 0, 327698, 3, 0, 327699, 3, 0, 327700, 3, 0, 327701, 3, 0, 327702, 3, 0, 327703, 3, 0, 458740, 3, 0, 458741, 3, 0, 458742, 3, 0, 458743, 3, 0, 458744, 3, 0, 458745, 3, 0, 458746, 3, 0, 458747, 3, 0, 458748, 3, 0, 458749, 3, 0, 458750, 3, 0, 458751, 3, 0, 393216, 3, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0, 393226, 3, 0, 393227, 3, 0, 393228, 3, 0, 393229, 3, 0, 393230, 3, 0, 393231, 3, 0, 393232, 3, 0, 393233, 3, 0, 393234, 3, 0, 393235, 3, 0, 393236, 3, 0, 393237, 3, 0, 524286, 3, 0, 524287, 3, 0, 458752, 3, 0, 458753, 3, 0, 458754, 3, 0, 458755, 3, 0, 458756, 3, 0, 458757, 3, 0, 458758, 3, 0, 458759, 3, 0, 458760, 3, 0, 458762, 3, 0, 458763, 3, 0, 458764, 3, 0, 458765, 3, 0, 458766, 3, 0, 458767, 3, 0, 458768, 3, 0, 458769, 3, 0, 458770, 3, 0, 458771, 3, 0, 524305, 3, 0, 524306, 3, 0, 524307, 3, 0, 524308, 3, 0 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 152, 16 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+position = Vector2( -38, -38 )
+texture = ExtResource( 2 )
+hframes = 9
+vframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( -36, -32 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+anims/Fall = SubResource( 4 )
+anims/Idle = SubResource( 2 )
+anims/Jump = SubResource( 5 )
+anims/RESET = SubResource( 3 )
+anims/Run = SubResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( -32, -32 )
+current = true
+zoom = Vector2( 0.4, 0.4 )
+smoothing_enabled = true
+
+[node name="Light2D" type="Light2D" parent="Player/Camera2D"]
+texture = ExtResource( 5 )
+texture_scale = 0.45
+shadow_enabled = true
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2( -36, -32 )
+shape = SubResource( 7 )
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0, 0, 0, 1 )
+
+[connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_Area2D_body_entered"]
