@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tilemap1.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://07d0f833ecda577e202033c5941f2ebc.jpg" type="Texture" id=3]
 [ext_resource path="res://SwitchScene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Portal.tscn" type="PackedScene" id=6]
 
 [node name="World_Scene" type="Node2D"]
@@ -36,3 +37,5 @@ motion_mirroring = Vector2( 1735, 1300 )
 position = Vector2( 862.25, 140 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]
