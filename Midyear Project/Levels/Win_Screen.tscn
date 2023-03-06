@@ -16,9 +16,11 @@ margin_bottom = 614.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 207.0
-margin_top = 225.0
-margin_right = 986.0
-margin_bottom = 530.0
+margin_left = 82.0
+margin_top = 46.0
+margin_right = 1108.0
+margin_bottom = 526.0
 custom_fonts/normal_font = SubResource( 1 )
-text = "Good Game!"
+text = "Good Game!
+
+by Advik, Dev, and Georges"

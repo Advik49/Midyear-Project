@@ -36,6 +36,6 @@ next_scene_path = "res://Levels/Level_3.tscn"
 
 [node name="SwitchScene" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2141, 31 )
-next_scene_path = "res://Levels/Final_Level.tscn"
+next_scene_path = "res://Levels/Level_4.tscn"
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
