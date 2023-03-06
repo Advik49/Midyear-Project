@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://Levels/Final_Level.tscn")
+	get_tree().change_scene("res://Levels/World_Scene.tscn")
 
 
 func _on_SettingsButton_pressed():
