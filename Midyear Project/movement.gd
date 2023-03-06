@@ -12,7 +12,6 @@ const MOVESPEED = 250
 var motion = Vector2()
 var facing_right = true
 var bullet_speed = 700
-var bullet = preload("res://Bullet.tscn")
 var direction = get_rotation()
 
 
@@ -61,22 +60,6 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, UP)
 
 
-func fire():
-	
-	var bullet_instance = bullet.instance()
-
-	bullet_instance.position = get_global_position()
-	bullet_instance.rotation_degrees= rotation_degrees
-	if facing_right == true:
-		bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(0))
-	if facing_right == false:
-		bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(PI))
-
-
-		
-
-	get_tree().get_root().call_deferred("add_child", bullet_instance)
-
 func kill():
 	get_tree().reload_current_scene()
 	
@@ -85,6 +68,6 @@ func kill():
 #	pass
 
 
-func _on_Area2D_body_entered(body):
-	if "Enemy" in body.name:
-		kill()
+#func _on_Area2D_body_entered(body):
+#	if "Enemy" in body.name:
+#		kill()
