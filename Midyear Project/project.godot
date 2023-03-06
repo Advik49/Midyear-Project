@@ -14,6 +14,10 @@ config/name="Midyear Project"
 run/main_scene="res://Intro.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+BgMusic="*res://bg_Music.tscn"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
