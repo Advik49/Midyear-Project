@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://tilemap1.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://07d0f833ecda577e202033c5941f2ebc.jpg" type="Texture" id=3]
 [ext_resource path="res://SwitchScene.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Portal.tscn" type="PackedScene" id=6]
 
@@ -25,3 +26,13 @@ next_scene_path = "res://Levels/Level_2.tscn"
 next_scene_path = "res://Levels/World_Scene.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1735, 1300 )
+
+[node name="07D0F833Ecda577E202033C5941F2Ebc" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 862.25, 140 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
