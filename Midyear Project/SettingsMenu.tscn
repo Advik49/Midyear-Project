@@ -32,12 +32,10 @@ margin_top = 150.0
 margin_right = 607.0
 margin_bottom = 260.0
 tab_size = 3
-text = "Up: Top Arrow Key
+text = "Jump: Space Bar
 
-Down: Botton Arrow Key
+Left: A Key
 
-Left: Left Arrow Key
-
-Right: Right Arrow Key"
+Right: D Key"
 
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
