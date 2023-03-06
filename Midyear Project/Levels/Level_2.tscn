@@ -1,8 +1,0 @@
-[gd_scene format=2]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1033.0
-margin_bottom = 614.0
-color = Color( 1, 0, 0, 1 )
