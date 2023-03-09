@@ -35,3 +35,4 @@ position = Vector2( 1266, 501 )
 next_scene_path = "res://Levels/Level_3.tscn"
 
 [node name="GUI" parent="." instance=ExtResource( 6 )]
+visible = false
