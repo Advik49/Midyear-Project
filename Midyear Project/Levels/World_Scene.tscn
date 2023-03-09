@@ -39,3 +39,4 @@ scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
+visible = false
