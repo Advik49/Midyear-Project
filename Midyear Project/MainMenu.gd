@@ -18,7 +18,7 @@ func _ready():
 
 func _on_StartButton_pressed():
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://Levels/World_Scene.tscn")
+	get_tree().change_scene("res://Levels/Final_Level.tscn")
 
 
 func _on_SettingsButton_pressed():
